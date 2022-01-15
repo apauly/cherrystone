@@ -2,7 +2,6 @@ module Cherrystone
   class DebugRenderer
 
     def self.render(view_context, node, _locals=nil)
-      view_context.instance_variable_set('@hide_header', true)
       debug_node(node).ai(html: true) if view_context.params[:debug]
     end
 
