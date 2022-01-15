@@ -1,6 +1,6 @@
 # Cherrystone
 
-![](images/logo.png)
+![](images/logo-wide.png)
 
 
 Cherrystone is a DSL for defining CRUD resources in an opinionated way. It
