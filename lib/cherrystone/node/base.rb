@@ -26,8 +26,22 @@ module Cherrystone
       append :title, value
     end
 
+    def subtitle(value)
+      append :subtitle, value
+    end
+
+    def paragraph(value)
+      append :paragraph, value
+    end
+
     def render_partial(name, locals=nil)
       append :render_partial, name, locals
+    end
+
+    def inspect
+      options_for_inspect = @options.except(:controller)
+      options_for_inspect[:controller] = "<##{options[:controller].class}>" if options[:controller]
+      "<##{self.class.to_s} @name=#{name.inspect} @payload=#{@payload.inspect} @options=#{options_for_inspect.inspect}>"
     end
 
   end

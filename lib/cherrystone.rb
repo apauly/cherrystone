@@ -6,8 +6,8 @@ require 'zeitwerk'
 loader = Zeitwerk::Loader.for_gem
 loader.setup
 
+require 'cherrystone/engine'
 require 'cherrystone/node/base'
-
 require 'cherrystone/node/attributes_node'
 require 'cherrystone/node/collection_table'
 require 'cherrystone/node/detail_view'
