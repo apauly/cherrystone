@@ -17,7 +17,12 @@ module Cherrystone
 
       instance = instance_for_block
       result = Docile.dsl_eval_with_block_return(instance, record, &@block)
-      instance == self ? result : instance
+      if instance == self
+        result
+      else
+        instance.parent ||= self
+        instance
+      end
     end
     alias_method :call, :invoke_block
 

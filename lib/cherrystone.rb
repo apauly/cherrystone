@@ -14,9 +14,3 @@ require 'cherrystone/node/detail_view'
 require 'cherrystone/node/grid_node'
 require 'cherrystone/node/invokable_node'
 require 'cherrystone/node/related_links'
-
-require 'cherrystone/view_helper'
-
-Cherrystone.configure do |config|
-  config.default_node_class = 'Cherrystone::Node::Base'
-end

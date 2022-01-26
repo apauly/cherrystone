@@ -15,6 +15,7 @@ module Cherrystone
       {
         name: node.name,
         payload: node.payload.inspect,
+        options: node.options.inspect,
         children: node.children.map {|child_node|
           debug_node(child_node)
         },

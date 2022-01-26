@@ -7,6 +7,7 @@ module Cherrystone
       @payload = collection
 
       # set the resource_class as an option so child nodes have access to it via +find_option+
+      # TODO: Still needed?
       self.options[:resource_class] = collection.klass
     end
 
@@ -15,6 +16,7 @@ module Cherrystone
     end
     alias_method :collection, :payload
 
+    # TODO: Still needed?
     def resource_class
       self.options[:resource_class]
     end

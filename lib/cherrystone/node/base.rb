@@ -22,16 +22,16 @@ module Cherrystone
     # Generic DSL methods for all subclasses
     #
 
-    def title(value)
-      append :title, value
+    def title(value, options=nil)
+      append :title, value, options
     end
 
-    def subtitle(value)
-      append :subtitle, value
+    def subtitle(value, options=nil)
+      append :subtitle, value, options
     end
 
-    def paragraph(value)
-      append :paragraph, value
+    def paragraph(value, options=nil)
+      append :paragraph, value, options
     end
 
     def render_partial(name, locals=nil)
