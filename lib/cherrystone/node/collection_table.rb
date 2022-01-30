@@ -5,21 +5,12 @@ module Cherrystone
 
     def collection=(collection)
       @payload = collection
-
-      # set the resource_class as an option so child nodes have access to it via +find_option+
-      # TODO: Still needed?
-      self.options[:resource_class] = collection.klass
     end
 
     def payload
-      @payload || options[:controller].collection
+      @payload
     end
     alias_method :collection, :payload
-
-    # TODO: Still needed?
-    def resource_class
-      self.options[:resource_class]
-    end
 
     def collection_action(i18n_key, url, options=nil)
       payload = { title: i18n_key, url: url }
