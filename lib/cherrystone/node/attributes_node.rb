@@ -7,7 +7,7 @@ module Cherrystone
       append node_class(:grid, Node::GridNode).new(:grid, nil, options), &block
     end
 
-    def field(key, options=nil, &block)
+    def field(key=nil, options=nil, &block)
       if key.is_a?(Hash)
         options = key
         key = nil

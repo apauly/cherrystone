@@ -45,6 +45,7 @@ class Cherrystone::Renderer
 
     prefix = DETAIL_VIEW_VARIANT_MAPPING[view_context.action_name]
     prefix ||= DETAIL_VIEW_VARIANT_MAPPING[view_context.root_node.name.to_s]
+    prefix ||= view_context.root_node.name.to_s
     return unless prefix.present?
 
     File.join(prefix, template_name.to_s)
