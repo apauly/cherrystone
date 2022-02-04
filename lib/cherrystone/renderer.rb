@@ -44,8 +44,10 @@ class Cherrystone::Renderer
     return if template_name.to_s.include?('/') # consider nested template to be fixed
 
     prefix = DETAIL_VIEW_VARIANT_MAPPING[view_context.action_name]
-    prefix ||= DETAIL_VIEW_VARIANT_MAPPING[view_context.root_node.name.to_s] if view_context.root_node
-    prefix ||= view_context.root_node.name.to_s
+    if view_context.root_node
+      prefix ||= DETAIL_VIEW_VARIANT_MAPPING[view_context.root_node.name.to_s]
+      prefix ||= view_context.root_node.name.to_s
+    end
     return unless prefix.present?
 
     File.join(prefix, template_name.to_s)
