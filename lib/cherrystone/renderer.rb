@@ -36,21 +36,24 @@ class Cherrystone::Renderer
     'create'      => 'detail_view_form',
     'edit'        => 'detail_view_form',
     'new'         => 'detail_view_form',
-    'update'      => 'detail_view_form',
-    'custom_form' => 'detail_view_form'
+    'update'      => 'detail_view_form'
   }.freeze
 
   def find_template_alternatives(view_context, template_name)
     return if template_name.to_s.include?('/') # consider nested template to be fixed
 
-    prefix = DETAIL_VIEW_VARIANT_MAPPING[view_context.action_name]
+    prefix = find_template_variant(view_context.action_name)
     if view_context.root_node
-      prefix ||= DETAIL_VIEW_VARIANT_MAPPING[view_context.root_node.name.to_s]
+      prefix ||= find_template_variant(view_context.root_node.name.to_s)
       prefix ||= view_context.root_node.name.to_s
     end
     return unless prefix.present?
 
     File.join(prefix, template_name.to_s)
+  end
+
+  def find_template_variant(lookup)
+    DETAIL_VIEW_VARIANT_MAPPING[lookup]
   end
 
   def prepare_locals(view_context, locals=nil)
