@@ -42,9 +42,9 @@ class Cherrystone::Renderer
   def find_template_alternatives(view_context, template_name)
     return if template_name.to_s.include?('/') # consider nested template to be fixed
 
-    prefix = find_template_variant(view_context.action_name)
+    prefix = find_template_variant(view_context, view_context.action_name)
     if view_context.root_node
-      prefix ||= find_template_variant(view_context.root_node.name.to_s)
+      prefix ||= find_template_variant(view_context, view_context.root_node.name.to_s)
       prefix ||= view_context.root_node.name.to_s
     end
     return unless prefix.present?
@@ -52,7 +52,7 @@ class Cherrystone::Renderer
     File.join(prefix, template_name.to_s)
   end
 
-  def find_template_variant(lookup)
+  def find_template_variant(_view_context, lookup)
     DETAIL_VIEW_VARIANT_MAPPING[lookup]
   end
 
