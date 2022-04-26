@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir['{app,config,db,lib}/**/*']
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'cherrystone_core', Cherrystone::VERSION
+  spec.add_dependency 'cherrystone_core', '>= 0.1.2'
 
   spec.add_development_dependency 'amazing_print'
   spec.add_development_dependency 'byebug'

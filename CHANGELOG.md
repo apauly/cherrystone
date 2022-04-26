@@ -1,3 +1,7 @@
+## Cherrystone 0.1.3
+
+* Small renderer adjustment in order to allow easier customization of `find_template_variant`
+
 ## Cherrystone 0.1.2
 
 * Added `raise_on_duplicate_root_nodes` option
