@@ -19,3 +19,4 @@ coverage/
 .DS_Store
 .byebug_history
 .rspec_status
+Gemfile.lock
